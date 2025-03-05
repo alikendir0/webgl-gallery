@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Art Gallery</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info">
+      Controls:<br />
+      WASD - Move around<br />
+      Q - Go Up<br />
+      E - Go Down<br />
+      Mouse - Look Around<br />
+    </div>
+    <style>
+      #compass {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .compass-rose {
+        width: 60px;
+        height: 60px;
+        transition: transform 0.3s ease;
+      }
+
+      .compass-marker {
+        position: absolute;
+        width: 2px;
+        height: 40px;
+        background: red;
+        left: 50%;
+        top: 50%;
+        transform-origin: bottom center;
+        transform: translateX(-50%) translateY(-100%);
+      }
+    </style>
+    <div id="compass">
+      <div class="compass-marker"></div>
+      <svg class="compass-rose" viewBox="0 0 100 100">
+        <text x="50" y="20" text-anchor="middle" fill="#000">N</text>
+        <text x="80" y="50" text-anchor="middle" fill="#000">E</text>
+        <text x="50" y="85" text-anchor="middle" fill="#000">S</text>
+        <text x="20" y="50" text-anchor="middle" fill="#000">W</text>
+        <circle
+          cx="50"
+          cy="50"
+          r="45"
+          fill="none"
+          stroke="#000"
+          stroke-width="1"
+        />
+      </svg>
+    </div>
+
+    <script
+      async
+      src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"
+    ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="gallery.js"></script>
+  </body>
+</html>
